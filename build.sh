@@ -1,8 +1,14 @@
 #!/bin/sh
 #
 
-[ $# -eq 0 ] && return 1
-[ -d $1 ] && return 2
+if [ $# -eq 0 ];then
+    echo "provide destination build directory, ie build/"
+    exit 1
+fi
+if [ -d $1 ];then 
+    echo "destination build directory already exists"
+    exit 2
+fi
 
 BUILD_DIR=$1
 
